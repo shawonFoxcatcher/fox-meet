@@ -1,4 +1,4 @@
-const socketURL = 'http://localhost:3000' // whatever your socket port
+const socketURL = 'https://fox-meet.vercel.app' // whatever your socket port
 const socket = io(socketURL);
 const myvideo = document.querySelector("#vd1");
 const roomid = params.get("room");
