@@ -1,5 +1,12 @@
-const socketURL = '../node_module/' // whatever your socket port
-const socket = io(socketURL);
+const socket = io(window?.location?.hostname || "http://localhost:3000", {
+    reconnectionDelay: 1000,
+    reconnection: true,
+    reconnectionAttempts: 10,
+    transports: ["websocket"],
+    agent: false,
+    upgrade: false,
+    rejectUnauthorized: false
+  });
 const myvideo = document.querySelector("#vd1");
 const roomid = params.get("room");
 let username;
