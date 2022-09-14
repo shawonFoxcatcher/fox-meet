@@ -153,7 +153,23 @@ mymuteicon.style.visibility = 'hidden';
 let myvideooff = document.querySelector("#myvideooff");
 myvideooff.style.visibility = 'hidden';
 
-const configuration = { iceServers: [{ urls: "stun:stun.stunprotocol.org" }] }
+const configuration = {
+    iceServers: [
+      {
+        url: "stun:stun.l.google.com:19302",
+      },
+      {
+        url: "turn:turn.bistri.com:80",
+        credential: "homeo",
+        username: "homeo",
+      },
+      {
+        url: "turn:turn.anyfirewall.com:443?transport=tcp",
+        credential: "webrtc",
+        username: "webrtc",
+      },
+    ],
+  };
 
 const mediaConstraints = { video: true, audio: true };
 
