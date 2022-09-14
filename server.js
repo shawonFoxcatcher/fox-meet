@@ -2,15 +2,16 @@ const path = require('path');
 const express = require('express')
 const http = require('http')
 const moment = require('moment');
-const socketio = require("socket.io")(server, {
-    allowEIO3: true, // false by default
-  });
+const socketio = require('socket.io');
+
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 const server = http.createServer(app);
 
-const io = socketio(server);
+const io = require("socket.io")(server, {
+    allowEIO3: true, // false by default
+  });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,6 +46,7 @@ io.on('connect', socket => {
             }
     
             io.to(roomid).emit('user count', rooms[roomid].length);
+            console.log("new user connected: ", socket.id);
         }catch(e){
             console.log(e);
         }
