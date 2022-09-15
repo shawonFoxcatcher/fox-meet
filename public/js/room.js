@@ -154,24 +154,20 @@ let myvideooff = document.querySelector("#myvideooff");
 myvideooff.style.visibility = 'hidden';
 
 const configuration = {
-    iceServers: [
-      {
-        url: "stun:stun.l.google.com:19302",
-      },
-      {
-        url: "stun:stun1.l.google.com:19302",
-      },
-      {
-        url: "turn:turn.bistri.com:80",
-        credential: "homeo",
-        username: "homeo",
-      },
-      {
-        url: "turn:turn.anyfirewall.com:443?transport=tcp",
-        credential: "webrtc",
-        username: "webrtc",
-      },
-    ],
+    iceServers: [{
+            urls: ["stun:fr-turn1.xirsys.com"]
+        }, {
+            username: "zUaG7DbWF7625MO9m0L8-z7A1CAyFdLFRNT9ZvGH3OO99eGGrq3kNIxmcdWcnikLAAAAAGG68RJkcmF6ZW52dQ==",
+            credential: "9d279abe-5e45-11ec-8a2c-0242ac120004",
+            urls: [
+                "turn:fr-turn1.xirsys.com:80?transport=udp",
+                "turn:fr-turn1.xirsys.com:3478?transport=udp",
+                "turn:fr-turn1.xirsys.com:80?transport=tcp",
+                "turn:fr-turn1.xirsys.com:3478?transport=tcp",
+                "turns:fr-turn1.xirsys.com:443?transport=tcp",
+                "turns:fr-turn1.xirsys.com:5349?transport=tcp"
+            ]
+        }]
   };
 
 const mediaConstraints = { video: true, audio: true };
